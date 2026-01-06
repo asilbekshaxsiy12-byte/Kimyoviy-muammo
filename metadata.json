@@ -1,0 +1,7 @@
+{
+  "name": "Kimyoviy Muammo (Chemistry Buddy AI)",
+  "description": "An AI-powered chemistry assistant that helps students solve problems, balance equations, and explore the periodic table with step-by-step explanations.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

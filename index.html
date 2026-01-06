@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimyoviy Muammo - Chemistry Buddy AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Plus+Jakarta+Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+        .periodic-grid {
+            display: grid;
+            grid-template-columns: repeat(18, minmax(0, 1fr));
+            gap: 2px;
+        }
+        @media (max-width: 768px) {
+            .periodic-grid {
+                overflow-x: auto;
+                display: flex;
+                padding-bottom: 1rem;
+            }
+            .element-box {
+                min-width: 45px;
+                height: 55px;
+            }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
