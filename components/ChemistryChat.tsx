@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ChemistryMessage } from '../types';
-import { startChemistryChat } from '../services/geminiService';
+import { startChemistryChat, hasApiKey, NO_KEY_MESSAGE } from '../services/geminiService';
 
 const ChemistryChat: React.FC = () => {
   const [messages, setMessages] = useState<ChemistryMessage[]>([
@@ -26,6 +26,12 @@ const ChemistryChat: React.FC = () => {
     setMessages(newMessages);
     setInput('');
     setLoading(true);
+
+    if (!hasApiKey()) {
+      setMessages(prev => [...prev, { role: 'model', text: NO_KEY_MESSAGE }]);
+      setLoading(false);
+      return;
+    }
 
     try {
       if (!chatRef.current) {
@@ -78,7 +84,7 @@ const ChemistryChat: React.FC = () => {
             placeholder="Savolingizni yozing..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
           />
           <button
             onClick={handleSend}

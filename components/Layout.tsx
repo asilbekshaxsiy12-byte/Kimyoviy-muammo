@@ -12,6 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ currentView, setView, children }) => {
   const navItems = [
     { id: AppView.DASHBOARD, icon: 'fa-house', label: 'Asosiy' },
     { id: AppView.SOLVER, icon: 'fa-vial-circle-check', label: 'Yechish' },
+    { id: AppView.CALCULATOR, icon: 'fa-calculator', label: 'Hisob' },
     { id: AppView.PERIODIC_TABLE, icon: 'fa-table-cells', label: 'Jadval' },
     { id: AppView.CHAT, icon: 'fa-comment-dots', label: 'Chat' },
     { id: AppView.FORMULAS, icon: 'fa-book-bookmark', label: 'Bilimlar' },
@@ -27,13 +28,10 @@ const Layout: React.FC<LayoutProps> = ({ currentView, setView, children }) => {
           </div>
           <h1 className="font-bold text-lg tracking-tight">Kimyoviy Muammo</h1>
         </div>
-        <button className="text-white/80 hover:text-white">
-          <i className="fa-solid fa-gear text-xl"></i>
-        </button>
       </header>
 
       {/* Content */}
-      <main className="flex-1 pb-24 md:pb-0 md:pt-4">
+      <main className="flex-1 pt-4 pb-24 md:pb-8 md:pl-20">
         <div className="max-w-4xl mx-auto px-4">
           {children}
         </div>

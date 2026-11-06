@@ -5,6 +5,7 @@ import ProblemSolver from './components/ProblemSolver';
 import PeriodicTable from './components/PeriodicTable';
 import ChemistryChat from './components/ChemistryChat';
 import Formulas from './components/Formulas';
+import Calculator from './components/Calculator';
 import { AppView } from './types';
 
 const App: React.FC = () => {
@@ -43,12 +44,18 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               <QuickAction 
                 onClick={() => setView(AppView.SOLVER)}
                 icon="fa-calculator" 
                 label="Masala yechish" 
                 color="bg-blue-500" 
+              />
+              <QuickAction 
+                onClick={() => setView(AppView.CALCULATOR)}
+                icon="fa-scale-balanced" 
+                label="Kalkulyator" 
+                color="bg-emerald-500" 
               />
               <QuickAction 
                 onClick={() => setView(AppView.PERIODIC_TABLE)}
@@ -83,6 +90,8 @@ const App: React.FC = () => {
         );
       case AppView.SOLVER:
         return <ProblemSolver />;
+      case AppView.CALCULATOR:
+        return <Calculator />;
       case AppView.PERIODIC_TABLE:
         return <PeriodicTable />;
       case AppView.CHAT:

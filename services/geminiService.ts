@@ -2,6 +2,11 @@
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { SYSTEM_INSTRUCTION } from "../constants";
 
+export const NO_KEY_MESSAGE =
+  "AI yordamchi uchun Gemini API kaliti kerak. Loyiha papkasida .env.local faylini yarating va unga GEMINI_API_KEY=... deb yozing. Kalkulyator va davriy jadval kalitsiz ham ishlaydi.";
+
+export const hasApiKey = () => Boolean(process.env.API_KEY);
+
 const getAIClient = () => {
   return new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
 };
@@ -10,6 +15,7 @@ export const solveChemistryProblem = async (
   prompt: string,
   base64Image?: string
 ): Promise<string> => {
+  if (!hasApiKey()) return NO_KEY_MESSAGE;
   const ai = getAIClient();
   const model = "gemini-3-flash-preview";
   

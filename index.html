@@ -4,30 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kimyoviy Muammo - Chemistry Buddy AI</title>
+    <title>Kimyoviy Muammo</title>
+    <meta name="theme-color" content="#047857">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
         body {
-            font-family: 'Plus+Jakarta+Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #f8fafc;
-        }
-        .periodic-grid {
-            display: grid;
-            grid-template-columns: repeat(18, minmax(0, 1fr));
-            gap: 2px;
-        }
-        @media (max-width: 768px) {
-            .periodic-grid {
-                overflow-x: auto;
-                display: flex;
-                padding-bottom: 1rem;
-            }
-            .element-box {
-                min-width: 45px;
-                height: 55px;
-            }
         }
     </style>
 <script type="importmap">
@@ -43,5 +28,6 @@
 </head>
 <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>

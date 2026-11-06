@@ -18,3 +18,10 @@ View your app in AI Studio: https://ai.studio/apps/drive/1Pxk6FGgP9le1hzgOqEgTV-
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Imkoniyatlar
+
+- **Kalkulyator** (internetsiz): molyar massa, elementlarning massa ulushi, mol / zarrachalar soni / gaz hajmi, reaksiya tenglamalarini avtomatik tenglashtirish
+- **Mendeleyev jadvali**: barcha 118 element, o'zbekcha nomlar, qidiruv va guruh bo'yicha filtr
+- **AI masala yechish va chat** (Gemini API kaliti kerak)
+- **Formulalar** to'plami

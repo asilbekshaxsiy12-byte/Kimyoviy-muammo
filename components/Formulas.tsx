@@ -15,7 +15,24 @@ const Formulas: React.FC = () => {
       title: 'Eritmalar',
       items: [
         { name: 'Massa ulushi', formula: 'w = (m_erigan / m_eritma) * 100%', desc: 'm_eritma = m_erigan + m_erituvchi' },
-        { name: 'Molyar konsentratsiya', formula: 'Cm = n / V', desc: 'V - eritma hajmi (litrda)' }
+        { name: 'Molyar konsentratsiya', formula: 'Cm = n / V', desc: 'V - eritma hajmi (litrda)' },
+        { name: 'Normal konsentratsiya', formula: 'Cn = n_ekv / V', desc: 'n_ekv - ekvivalentlar soni' },
+        { name: 'Eritmalarni aralashtirish', formula: 'm1·w1 + m2·w2 = (m1 + m2)·w3', desc: '"Xoch" (konvert) qoidasi' }
+      ]
+    },
+    {
+      title: 'Gazlar',
+      items: [
+        { name: 'Nisbiy zichlik', formula: 'D = M1 / M2', desc: "Havoga nisbatan: D = M / 29" },
+        { name: 'Klapeyron-Mendeleyev', formula: 'PV = (m / M)·RT', desc: 'P - Pa, V - m³, T - K' },
+        { name: 'Unum (chiqish)', formula: 'η = m_amaliy / m_nazariy · 100%', desc: 'Reaksiya mahsulotining chiqishi' }
+      ]
+    },
+    {
+      title: 'Kislota-asos',
+      items: [
+        { name: 'Vodorod ko\'rsatkich', formula: 'pH = -lg[H⁺]', desc: 'pH < 7 kislotali, pH > 7 ishqoriy' },
+        { name: 'pH va pOH', formula: 'pH + pOH = 14', desc: '25 °C da' }
       ]
     },
     {
