@@ -36,6 +36,29 @@ jobs:
           npx --yes @capacitor/assets@3 generate --android
           npx cap sync android
 
+      # Har safar bir xil imzo kaliti — yangi versiya eskisining ustiga o'rnatiladi
+      - name: Restore signing key
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: android-signing-key-v1
+
+      - name: Create signing key (first run only)
+        run: |
+          if [ ! -f ~/.android/debug.keystore ]; then
+            mkdir -p ~/.android
+            keytool -genkeypair -keystore ~/.android/debug.keystore -storepass android \
+              -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 \
+              -dname "CN=Kimyoviy Muammo,O=Asilbek Sunnatillayev,C=UZ"
+          fi
+
+      # Har bir yangi APK versiya raqami oshib boradi
+      - name: Set version
+        run: |
+          sed -i "s/versionCode 1$/versionCode ${{ github.run_number }}/" android/app/build.gradle
+          sed -i "s/versionName \"1.0\"/versionName \"1.0.${{ github.run_number }}\"/" android/app/build.gradle
+          grep -E "versionCode|versionName" android/app/build.gradle
+
       - name: Build APK
         working-directory: android
         run: |
