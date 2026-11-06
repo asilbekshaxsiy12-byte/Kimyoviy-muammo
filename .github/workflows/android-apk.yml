@@ -33,6 +33,7 @@ jobs:
       - name: Create Android project
         run: |
           npx cap add android
+          npx --yes @capacitor/assets@3 generate --android
           npx cap sync android
 
       - name: Build APK

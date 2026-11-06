@@ -207,12 +207,17 @@ const Home: React.FC = () => {
   const [info, setInfo] = useState(false);
   const count = state.chat.length;
 
-  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }); }, [count]);
+  // Faqat yangi xabar kelganda pastga tushamiz — kirishda kun mavzusi ko'rinib tursin
+  const prevCount = useRef(count);
+  useEffect(() => {
+    if (count > prevCount.current) endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    prevCount.current = count;
+  }, [count]);
 
   return (
     <div className="min-h-full">
       <header className="sticky top-0 z-30 bg-surface/90 backdrop-blur px-4 h-16 flex items-center gap-2.5">
-        <div className="w-10 h-10 rounded-xl bg-card shadow p-1"><Logo className="w-full h-full" /></div>
+        <div className="w-10 h-10 rounded-xl overflow-hidden shadow"><Logo className="w-full h-full" /></div>
         <h1 className="font-extrabold text-lg">Kimyoviy muammo</h1>
         <div className="ml-auto"><AtomCounter /></div>
       </header>

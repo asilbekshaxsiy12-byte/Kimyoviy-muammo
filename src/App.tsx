@@ -11,9 +11,9 @@ import TopicView from './views/Topic';
 import { AdminChat, AdminPanel } from './views/Admin';
 import UploadSheet from './views/Upload';
 
-const Splash: React.FC = () => (
-  <div className="fixed inset-0 z-[100] bg-gradient-to-br from-emerald-700 via-teal-700 to-sky-800 text-white flex flex-col items-center justify-center overflow-hidden">
-    {/* Fondagi suzib yuruvchi formulalar */}
+/** Zaxira splash: video ishlamasa ko'rsatiladi */
+const FallbackSplash: React.FC = () => (
+  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800 via-teal-900 to-slate-950 text-white flex flex-col items-center justify-center overflow-hidden">
     {['H₂O', 'NaCl', 'CO₂', 'C₆H₁₂O₆', 'H₂SO₄', 'NH₃', 'O₂', 'CH₄'].map((f, i) => (
       <span
         key={f}
@@ -25,19 +25,32 @@ const Splash: React.FC = () => (
     ))}
     <div className="relative w-44 h-44 flex items-center justify-center">
       <div className="absolute inset-0 rounded-full border-2 border-white/30 animate-orbit" style={{ borderTopColor: 'white' }} />
-      <div className="absolute inset-4 rounded-full border-2 border-white/20 animate-orbit-slow" style={{ borderBottomColor: '#a7f3d0' }} />
-      <div className="w-28 h-28 rounded-[2rem] bg-white shadow-2xl flex items-center justify-center p-3">
-        <Logo className="w-full h-full" />
-      </div>
+      <div className="w-28 h-28 rounded-full overflow-hidden shadow-2xl"><Logo className="w-full h-full" /></div>
     </div>
     <h1 className="mt-8 text-3xl font-extrabold tracking-tight">{APP.name}</h1>
     <p className="mt-2 text-white/80 italic">“{APP.slogan}”</p>
-    <div className="absolute bottom-10 w-40 h-1 rounded-full bg-white/20 overflow-hidden">
-      <div className="h-full bg-white" style={{ animation: `grow ${APP.splashMs}ms linear forwards` }} />
-    </div>
-    <style>{'@keyframes grow{from{width:0}to{width:100%}}'}</style>
   </div>
 );
+
+/** 4 soniyalik splash: muallifning animatsion videosi */
+const Splash: React.FC = () => {
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className="fixed inset-0 z-[100] bg-[#040c0a]">
+      {failed ? <FallbackSplash /> : (
+        <video
+          src="./splash.mp4"
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          onError={() => setFailed(true)}
+          className="w-full h-full object-cover"
+        />
+      )}
+    </div>
+  );
+};
 
 const Onboarding: React.FC = () => {
   const { register } = useStore();
@@ -46,7 +59,7 @@ const Onboarding: React.FC = () => {
   const ok = first.trim().length >= 2;
   return (
     <div className="min-h-full flex flex-col justify-center px-6 py-10 max-w-md mx-auto">
-      <div className="w-20 h-20 rounded-3xl bg-card shadow-lg p-3 mb-6"><Logo className="w-full h-full" /></div>
+      <div className="w-24 h-24 rounded-3xl overflow-hidden shadow-lg mb-6"><Logo className="w-full h-full" /></div>
       <h1 className="text-3xl font-extrabold">Xush kelibsiz!</h1>
       <p className="text-muted mt-2 mb-8">Kimyo sarguzashtini boshlash uchun ismingizni kiriting. Siz o'quvchi sifatida ro'yxatdan o'tasiz.</p>
       <div className="space-y-3">
