@@ -2,7 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #f8fafc;
-  -webkit-tap-highlight-color: transparent;
+:root {
+  --surface: 244 247 251;
+  --card: 255 255 255;
+  --ink: 15 23 42;
+  --muted: 100 116 139;
+  --line: 226 232 240;
+  --soft: 241 245 249;
+  color-scheme: light;
 }
+:root.dark {
+  --surface: 10 14 20;
+  --card: 21 27 36;
+  --ink: 241 245 249;
+  --muted: 148 163 184;
+  --line: 44 54 70;
+  --soft: 31 39 51;
+  color-scheme: dark;
+}
+
+html, body, #root { height: 100%; }
+body {
+  @apply bg-surface text-ink;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }

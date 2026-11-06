@@ -27,13 +27,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Ixtiyoriy: repozitoriya Secrets bo'limiga GEMINI_API_KEY qo'shilsa, AI qismi ishlaydi
-      - name: Gemini API key
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          if [ -n "$GEMINI_API_KEY" ]; then echo "GEMINI_API_KEY=$GEMINI_API_KEY" > .env.local; fi
-
       - name: Build web app
         run: npm run build
 

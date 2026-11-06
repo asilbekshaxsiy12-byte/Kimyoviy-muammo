@@ -8,27 +8,24 @@ This contains everything you need to run your app locally.
 
 View your app in AI Studio: https://ai.studio/apps/drive/1Pxk6FGgP9le1hzgOqEgTV-PHHeihznSG
 
-## Run Locally
+## Ishga tushirish
 
-**Prerequisites:**  Node.js
+```
+npm install
+npm run dev
+```
 
+## Bo'limlar (ssenariy bo'yicha)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- **Splash ekran** — 4 soniya, logotip (`public/logo.png`) va shior
+- **Asosiy** — kun mavzusi, ertangi mavzu uchun ovoz berish, atom hisobi (bosilsa TOP-100), umumiy chat
+  (rasm — Leytenant, video — Mayor darajasidan), har xabarda shikoyat qilish, nomaqbul so'z filtri
+- **Kvant** — Reels/Shorts uslubidagi vertikal lenta: like, dislike, fikrlar, ulashish
+- **Darslar** — ustozlar ro'yxati (premium ustozlar Kapitan darajasidan), o'quv xona: fon, mavzular, video, PDF, testlar
+- **Profil** — rasm, ergashganlar/ergashtirganlar, daraja, kvantlar, tahrirlash, o'qituvchi bo'lish (admin chat), sozlamalar
+- **"+" tugmasi** — kvant joylash, o'qituvchilar uchun dars yuklash
+- **Admin panel** — arizalar, shikoyatlar, premium ustozlar, kun mavzusini tanlash
 
-## Imkoniyatlar
+> Hozircha ma'lumotlar telefonda saqlanadi (namuna foydalanuvchilar bilan). Keyingi bosqich — server (Supabase) ulash.
 
-- **Kalkulyator** (internetsiz): molyar massa, elementlarning massa ulushi, mol / zarrachalar soni / gaz hajmi, reaksiya tenglamalarini avtomatik tenglashtirish
-- **Mendeleyev jadvali**: barcha 118 element, o'zbekcha nomlar, qidiruv va guruh bo'yicha filtr
-- **AI masala yechish va chat** (Gemini API kaliti kerak)
-- **Formulalar** to'plami
-
-## Android ilova (APK)
-
-Har safar kod GitHub'ga yuklanganda **GitHub Actions** APK'ni avtomatik yig'adi.
-Tayyor faylni repozitoriyaning **Releases → "Kimyoviy Muammo (so'nggi APK)"** bo'limidan yuklab oling.
-
-AI qismi APK'da ishlashi uchun: *Settings → Secrets and variables → Actions* bo'limiga `GEMINI_API_KEY` qo'shing.
+Muallif havolalari: `src/config.ts`
