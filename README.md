@@ -25,3 +25,10 @@ View your app in AI Studio: https://ai.studio/apps/drive/1Pxk6FGgP9le1hzgOqEgTV-
 - **Mendeleyev jadvali**: barcha 118 element, o'zbekcha nomlar, qidiruv va guruh bo'yicha filtr
 - **AI masala yechish va chat** (Gemini API kaliti kerak)
 - **Formulalar** to'plami
+
+## Android ilova (APK)
+
+Har safar kod GitHub'ga yuklanganda **GitHub Actions** APK'ni avtomatik yig'adi.
+Tayyor faylni repozitoriyaning **Releases → "Kimyoviy Muammo (so'nggi APK)"** bo'limidan yuklab oling.
+
+AI qismi APK'da ishlashi uchun: *Settings → Secrets and variables → Actions* bo'limiga `GEMINI_API_KEY` qo'shing.
